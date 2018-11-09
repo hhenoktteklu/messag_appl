@@ -1,0 +1,33 @@
+body{
+    background: url("../img/back.jpg");
+}
+
+#tblh{
+    color: white;
+}
+
+#tbld1{
+    color: white;
+    width: 500px;
+    font-size: larger;
+}
+
+#tbld2{
+    color: white;
+    width: 120px;
+    font-size: larger;
+}
+
+#tbld3{
+    color: white;
+    width: 120px;
+    font-size: larger;
+}
+#tbld4{
+    color: whitesmoke;
+    width: 80px;
+    font-size: large;
+    margin-left: 10px;
+    font-weight: bolder;
+    text-decoration: underline;
+}

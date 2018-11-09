@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Base</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:fragment="navlinks">
+    <nav class="navbar navbar-inverse" style="background-color: black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}" style="font-family:  ; color: white">Messaging App</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li sec:authorize="isFullyAuthenticated()" style="margin-top: 11px; color:grey; font-family:Tahoma ;font-size: large">Welcome [[${#authentication.name}]]</li>
+                <li><a th:href="@{/}" style="font-family: cursive; color: white">Home</a></li>
+                <li sec:authorize="isFullyAuthenticated()"><a th:href="@{/add}" style="font-family: cursive; color: white">Add a Message</a></li>
+                <li sec:authorize="!isFullyAuthenticated()"><a th:href="@{/login}" style="font-family: cursive; color: white">Login</a></li>
+                <li sec:authorize="isFullyAuthenticated()"><a th:href="@{/logout}" style="font-family: cursive; color: white">Logout</a></li>
+                <li sec:authorize="!hasAuthority('USER')"><a th:href="@{/register}" style="font-family: cursive; color: white">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<footer style="position:fixed;bottom:0;left:0;right:0;height:30px;background: black; color: white">
+        <h6 align="center">&copy; copyright 2018</h6>
+</footer>
+</body>
+</html>

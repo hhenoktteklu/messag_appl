@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<div th:replace="base::navlinks"></div>
+<body>
+<div class="container" style="background-color:#f2f2f2; margin-top: 100px">
+
+<form autocomplete="off"
+      th:action="@{/register}"
+      th:object="${newUser}"
+      method="post">
+    <h2 align="center" style="font-family: cursive">New User Registration</h2><br/>
+
+
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">
+            First Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="firstName"
+                   placeholder="First Name" th:field="*{firstName}">
+
+            </strong></mark>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">Last Name
+        </label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="lastName"
+                   placeholder="Last Name" name="lastName" value="" th:field="*{lastName}">
+
+            </strong></mark>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="email"
+                   placeholder="Email" name="email" value="" th:field="*{email}">
+
+            </strong></mark>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username
+        </label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="username"
+                   placeholder="Username" name="username" value="" th:field="*{username}">
+
+            </strong></mark>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="password"
+                   placeholder="Password" name="password" value="" th:field="*{password}">
+
+            </strong></mark>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-color text-white" style="margin-left: 300px">Register</button>
+        </div>
+    </div>
+</form>
+</div>
+<div th:replace="base::footer"></div>
+</body>
+</html>

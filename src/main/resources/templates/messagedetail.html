@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.com"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<div th:replace="base::navlinks"></div>
+<body>
+<div class="container" style="background-color:lightgray; margin-top: 100px">
+    <h2 align="center" style="font-family: cursive">Message Details</h2><br/>
+<div style="width: 400px; alignment: center">
+    <table class="table table-striped" style="margin-left: 350px">
+        <thead>
+        <th>Content</th>
+        <th>Sent By</th>
+        <th>Date</th>
+        </thead>
+        <tr style="background-color: transparent">
+            <td>[[${message.text}]]</td>
+            <td>[[${message.sentBy}]]</td>
+            <td>[[${message.date}]]</td>
+        </tr>
+    </table>
+</div>
+    <div align="center"><hr/>
+    <a th:href="@{/}"> <button type="button" class="btn btn-light">View All Messages</button></a>
+
+        <span th:if="${check}"> <a th:href="@{/updatemessage/{id} (id=${message.id})}"> <button type="button" class="btn btn-primary">Update Post</button></a></span>
+        <span th:unless="${check}"></span>
+
+    </div>
+    <br/><br/>
+    </div>
+</div>
+<div th:replace="base::footer"></div>
+</body>
+</html>
