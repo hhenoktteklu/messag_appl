@@ -1,5 +1,9 @@
-package com.example.demo;
+package com.example.demo.service;
 
+import com.example.demo.entities.Role;
+import com.example.demo.entities.User;
+import com.example.demo.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +19,7 @@ import java.util.Set;
 @Service
 public class SSUserDetailsService implements UserDetailsService {
 
+    @Autowired
     private UserRepository userRepository;
 
     public SSUserDetailsService(UserRepository userRepository) {

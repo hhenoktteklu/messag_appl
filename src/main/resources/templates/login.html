@@ -2,20 +2,30 @@
 <html lang="en" xmlns:th="www.thymeleaf.com">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
+<div th:replace="base::navlinks"></div>
 <body>
-<h1>Login Page</h1>
+
+<div class="container" style="margin-top: 200px; margin-left: 650px">
+
+
 <div th:if="${param.error}">
     Invalid username or password
 </div>
 <div th:if="${param.logout}">
     You have logged out
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label>User name:<input type="text" name="username"/> </label></div>
-    <div><label>Password:<input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign in"></div>
+<form th:action="@{/login}" method="post" class="form-group">
+    <div><input type="text" name="username" class="form-control" placeholder="Username" style="width: 500px"/></div><br/>
+    <div><input type="password" name="password" class="form-control" placeholder="Password" style="width: 500px"/></div><br/>
+    <div style="margin-left: 230px"><input type="submit" value="Log in" class="btn btn-primary" style="alignment: center"></div>
 </form>
+</div>
+<div th:replace="base::footer"></div>
 </body>
 </html>

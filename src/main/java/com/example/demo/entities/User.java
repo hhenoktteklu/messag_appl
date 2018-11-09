@@ -1,9 +1,12 @@
-package com.example.demo;
+package com.example.demo.entities;
 
+import com.example.demo.entities.Role;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "User_Data")
@@ -25,6 +28,9 @@ public class User {
     @Column(name = "username")
     private String username;
 
+    @OneToMany
+    private List<Message> messages;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_ide"))
@@ -35,12 +41,12 @@ public class User {
             }
 
     public User(String email, String password, String firstName, String lastName, boolean enabled, String username) {
-        this.email = email;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.enabled = enabled;
-        this.username = username;
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setEnabled(enabled);
+        this.setUsername(username);
     }
 
     public long getId() {
@@ -68,6 +74,14 @@ public class User {
         this.password = passwordEncoder.encode(password);
     }
 
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -89,7 +103,7 @@ public class User {
     }
 
     public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+        this.enabled = true;
     }
 
     public String getUsername() {

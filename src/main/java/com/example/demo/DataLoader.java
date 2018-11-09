@@ -1,5 +1,11 @@
 package com.example.demo;
 
+import com.example.demo.entities.Message;
+import com.example.demo.entities.Role;
+import com.example.demo.entities.User;
+import com.example.demo.repositories.MessageRepository;
+import com.example.demo.repositories.RoleRepository;
+import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,28 +16,37 @@ import java.util.Arrays;
 @Component
 public class DataLoader implements CommandLineRunner {
     @Autowired
-    UserRepository userRepository;
+    private RoleRepository roleRepository;
     @Autowired
-    RoleRepository roleRepository;
+    private UserRepository userRepository;
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
+    private MessageRepository messageRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        roleRepository.save(new Role("USER"));
-        roleRepository.save(new Role("ADMIN"));
 
-        Role adminRole = roleRepository.findByRole("ADMIN");
-        Role userRole = roleRepository.findByRole("USER");
 
-        User user = new User("jim@jim.com","password","Jim","Jimmerson",true,"jim");
+        Message message = new Message();
+        message.setDate("11/10/2018");
+        message.setSentBy("John");
+        message.setText("Java programming is fun");
+        messageRepository.save(message);
+
+        Role userRole = new Role();
+        userRole.setRole("USER");
+
+        roleRepository.save(userRole);
+
+        User user = new User();
+        user.setEmail("John@gmail.com");
+        user.setEnabled(true);
+        user.setFirstName("John");
+        user.setLastName("Dwell");
+        user.setPassword("user");
+        user.setUsername("user");
         user.setRoles(Arrays.asList(userRole));
-        userRepository.save(user);
+        user.setMessages(Arrays.asList(message));
 
-        user = new User("admin@admin.com","password","Admin","User",true,"admin");
-        user.setRoles(Arrays.asList(adminRole));
         userRepository.save(user);
-
     }
 }
