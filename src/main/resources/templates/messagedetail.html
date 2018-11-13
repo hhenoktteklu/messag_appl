@@ -29,8 +29,8 @@
     <div align="center"><hr/>
     <a th:href="@{/}"> <button type="button" class="btn btn-light">View All Messages</button></a>
 
-        <span th:if="${check}"> <a th:href="@{/updatemessage/{id} (id=${message.id})}"> <button type="button" class="btn btn-primary">Update Post</button></a></span>
-        <span th:unless="${check}"></span>
+        <span th:if="${currentuser}"> <a th:href="@{/updatemessage/{id} (id=${message.id})}"> <button type="button" class="btn btn-primary">Update Post</button></a></span>
+        <span th:unless="${currentuser}"></span>
 
     </div>
     <br/><br/>

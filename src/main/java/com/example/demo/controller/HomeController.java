@@ -32,6 +32,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model){
+      //  System.out.println("From principal: "+principal.getName());
+        System.out.println("From method: "+getUser());
         model.addAttribute("messages", messageRepository.findAll());
         return "index";
     }
@@ -55,7 +57,7 @@ public class HomeController {
         return "redirect:/";
     }
     @RequestMapping("/add")
-    public String addMessage(Model model){
+    public String addMessage(Model model, Principal pr){
         model.addAttribute("message", new Message());
         return "message";
     }
@@ -71,9 +73,9 @@ public class HomeController {
        model.addAttribute("message",messageRepository.findById(id));
         Message messbyId = messageRepository.findById(id);
         if(getUser().equalsIgnoreCase(messbyId.getUsername())){
-            model.addAttribute("check", true);
+            model.addAttribute("currentuser", true);
         } else {
-            model.addAttribute("check", false);
+            model.addAttribute("currentuser", false);
         }
        return "messagedetail";
     }

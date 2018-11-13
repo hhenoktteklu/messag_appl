@@ -30,6 +30,7 @@ public class DataLoader implements CommandLineRunner {
         message.setDate("11/10/2018");
         message.setSentBy("John");
         message.setText("Java programming is fun");
+        message.setUsername("user");
         messageRepository.save(message);
 
         Role userRole = new Role();
