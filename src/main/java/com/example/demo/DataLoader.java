@@ -4,13 +4,11 @@ import com.example.demo.entities.Message;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.Role;
 import com.example.demo.entities.User;
-import com.example.demo.repositories.MessageRepository;
 import com.example.demo.repositories.PostRepository;
 import com.example.demo.repositories.RoleRepository;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
