@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Messaging App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<div th:replace="base::navlinks"></div>
+<body>
+<form th:action="@{/privatemessageprocess}" th:object="${message}" method="post">
+    <input type="hidden" name="uid" th:value="${user.id}">
+<div class="container" style="margin-left: 25%">
+    <div>
+        <div id="dmsg1">
+            <div id="dmsg2">
+                <div id="dmsg6"></div>
+                <span id="dmhn">[[${user.firstName}]] [[${user.lastName}]]</span>
+            </div>
+            <div id="dmsg3">
+                <div id="dmsg5" th:if="${not #lists.isEmpty(msgs)}" th:each="msg : ${msgs}">
+                                [[${msg.text}]]
+                </div>
+            </div>
+            <div id="dmsg4">
+                <input type="text" id="mesinp" th:field="*{text}"/>
+                <input type="submit" value="Send" id="mesendb"/>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<div th:replace="base::footer"></div>
+</body>
+</html>
