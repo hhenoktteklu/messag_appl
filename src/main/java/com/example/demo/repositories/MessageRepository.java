@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface MessageRepository extends CrudRepository<Message, Long> {
 
-    Message findById(long id);
+    Message findById(long id);List<Message> findAllBySentFromAndSentTo(String str1, String str2);
+    List<Message> findAllBySentTo(String string);
 }

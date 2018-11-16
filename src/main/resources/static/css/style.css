@@ -1,33 +1,160 @@
 body{
-    background: url("../img/back.jpg");
+    background: url("../img/background.jpg");
+    background-size: cover;
+
 }
 
-#tblh{
-    color: white;
+.container{
+    margin-left: 33%;
+    margin-top: 5%;
+
 }
 
-#tbld1{
-    color: white;
-    width: 500px;
-    font-size: larger;
+#div1{
+    background-color: greenyellow;
+    width: 600px;
+    height: 200px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
 }
 
-#tbld2{
-    color: white;
-    width: 120px;
-    font-size: larger;
+#div2{
+    background-color: lightgray;
+    width: 100px;
+    height: 70px;
+    margin-left: 15px;
+    border-radius: 50%;
+    border-color: black;
+    border-width: 1px;
+    float: left;
 }
 
-#tbld3{
-    color: white;
-    width: 120px;
-    font-size: larger;
+#div3{
+    background-color: lightgray;
+    width: 480px;
+    height: 70px;
+    border-color: black;
+    border-width: 1px;
+    margin-left: 120px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-top: 18px;
 }
-#tbld4{
-    color: whitesmoke;
-    width: 80px;
+
+#div4{
+    background-color: whitesmoke;
+    width: 600px;
+    height: 200px;
+    border-color: black;
+    border-width: 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-butoom: 20px;
+
+
+}
+#div5{
+    background-color: lightgray;
+    height: 50px;
+    width: 600px;
+    border-color: black;
+    border-width: 1px;
+    margin-bottom: 40px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+#navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#messNam{
+    font-size: x-large;
+    margin-left: 30px;
+}
+
+#messmess{
     font-size: large;
-    margin-left: 10px;
-    font-weight: bolder;
-    text-decoration: underline;
+}
+
+#dmsg1{
+    background-color: greenyellow;
+    width: 800px;
+    height: 720px;
+    margin-top: 20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+
+}
+#dmsg2{
+    background-color: darkgrey;
+    width: 800px;
+    height: 70px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+
+}
+#dmsg3{
+    background-color: lightgrey;
+    width: 800px;
+    height: 580px;
+    padding-top:10px;
+}
+#dmsg4{
+    background-color: darkgrey;
+    height: 70px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+#dmsg5{
+    background-color: whitesmoke;
+    width:700px;
+    height:50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    margin-left:6%;
+    padding-top:14px;
+    padding-left:20px;
+    margin-bottom: 10px;
+
+}
+#mesinp{
+    width:700px;
+    height:50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    margin-top:10px;
+    margin-left:10px;
+}
+#mesendb{
+    width:80px;
+    height:50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+#dmsg6{
+    width:70px;
+    height:70px;
+    background-color: grey;
+    border-radius:50px;
+    margin-left:300px;
+    float:left;
+}
+#dmhn{
+    font-size: x-large;
+    padding-left: 20px;
+
 }

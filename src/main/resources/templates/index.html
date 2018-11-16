@@ -10,39 +10,28 @@
 </head>
 <div th:replace="base::navlinks"></div>
 <body>
-<div style="padding: 30px">
-<h1 align="center" style="color: white; font-family: 'Times New Roman'">Welcome to Code Work Academy Messaging App!</h1>
-</div>
-<div class="container" style="background-color:transparent";>
-    <h2 align="center" style="font-family: cursive; color: white;">List of Messages</h2><br/><br/>
-<div align="center">
-    <table>
-        <thead>
-        <th id="tblh"><h3>Content</h3></th>
-        <th id="tblh"><h3>Sent By</h3></th>
-        <th id="tblh"><h3>Date</h3></th>
-        </thead>
-        <tr th:each="message : ${messages}">
-            <td id="tbld1">[[${message.text}]]</td>
-            <td id="tbld2">[[${message.sentBy}]]</td>
-            <td id="tbld3">[[${message.date}]]</td>
-            <td  sec:authorize="hasAuthority('USER')"><a id="tbld4" th:href="@{/messagedetail/{id} (id=${message.id})}">Details</a></td>
-        </tr>
-    </table>
-</div>
-        <br/><br/>
-        <div align="center">
-            <div  sec:authorize="!hasAuthority('USER')">
-           <a th:href="@{/login}"> <button type="button" class="btn btn-secondary">Login</button></a>
-           <a th:href="@{/register}"> <button type="button" class="btn btn-primary">Register</button></a>
-            </div>
-            <div sec:authorize="hasAuthority('USER')">
-           <a th:href="@{/add}"> <button type="button" class="btn btn-light">Add Message</button></a>
-           <a th:href="@{/logout}"> <button type="button" class="btn btn-primary">Logout</button></a>
-            </div>
-        </div><br/><br/>
+
+
+<div class="container" >
+    <div class="row">
+    <div th:each="post : ${posts}">
+        <div style="float: left">
+            <div id="div2" ></div>
+            <div id="div3"><span id="messNam"><a th:href="@{/privatemessage/{id} (id=${post.user.id})}">[[${post.user.getFirstName()}]] [[${post.user.getLastName()}]]</a></span></div>
+        </div>
+        <div id="div4">
+            <span id="messmess"><strong>Username: &nbsp; [[${post.user.getFirstName()}]] &nbsp; Password:&nbsp; [[${post.user.getFirstName()}]]</strong>
+                [[${post.text}]]</span>
+        </div>
+        <div id="div5">
+
+        </div>
+    </div>
     </div>
 </div>
+
 <div th:replace="base::footer"></div>
+
 </body>
 </html>
+

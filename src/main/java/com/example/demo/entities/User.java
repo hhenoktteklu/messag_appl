@@ -4,9 +4,7 @@ import com.example.demo.entities.Role;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "User_Data")
@@ -28,17 +26,16 @@ public class User {
     @Column(name = "username")
     private String username;
 
-    @OneToMany
-    private List<Message> messages;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_ide"))
-            private Collection<Role> roles;
+    private Collection<Role> roles;
 
     public User(){
 
-            }
+    }
 
     public User(String email, String password, String firstName, String lastName, boolean enabled, String username) {
         this.setEmail(email);
@@ -72,14 +69,6 @@ public class User {
     public void setPassword(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         this.password = passwordEncoder.encode(password);
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 
     public String getFirstName() {

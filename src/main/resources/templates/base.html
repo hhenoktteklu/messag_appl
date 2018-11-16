@@ -8,7 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div th:fragment="navlinks">
+<div th:fragment="navlinks" id="navbar">
     <nav class="navbar navbar-inverse" style="background-color: black">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li sec:authorize="isFullyAuthenticated()" style="margin-top: 11px; color:grey; font-family:Tahoma ;font-size: large">Welcome [[${#authentication.name}]]</li>
                 <li><a th:href="@{/}" style="font-family: cursive; color: white">Home</a></li>
-                <li sec:authorize="isFullyAuthenticated()"><a th:href="@{/add}" style="font-family: cursive; color: white">Add a Message</a></li>
+                <li sec:authorize="isFullyAuthenticated()"><a th:href="@{/addpost}" style="font-family: cursive; color: white">Create Post</a></li>
                 <li sec:authorize="!isFullyAuthenticated()"><a th:href="@{/login}" style="font-family: cursive; color: white">Login</a></li>
                 <li sec:authorize="isFullyAuthenticated()"><a th:href="@{/logout}" style="font-family: cursive; color: white">Logout</a></li>
                 <li sec:authorize="!hasAuthority('USER')"><a th:href="@{/register}" style="font-family: cursive; color: white">Register</a></li>
